@@ -1,11 +1,15 @@
 import './App.css'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
   return (
-    <main className="app">
-      <h1>Parcial 2</h1>
-      <p>Proyecto en blanco: Fullstack II</p>
-    </main>
+    <>
+      <Navbar />
+      <main className="app">
+        <h1>Parcial 2</h1>
+        <p>Proyecto en blanco: Fullstack II</p>
+      </main>
+    </>
   )
 }
 
