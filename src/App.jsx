@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Banner from './components/Banner.jsx'
+import ProductosDestacados from './components/ProductosDestacados.jsx'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <main className="app">
         <Banner />
+        <ProductosDestacados />
       </main>
     </div>
   )
