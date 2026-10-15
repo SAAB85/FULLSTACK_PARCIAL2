@@ -42,7 +42,7 @@ function Navbar() {
             className={`navbar-links ${isMenuOpen ? 'navbar-links--open' : ''}`}
             id="navbar-links"
           >
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Inicio</a></li>
+            <li><a className="navbar-link" href="./index.html">Inicio</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Productos</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Nosotros</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Blogs</a></li>
