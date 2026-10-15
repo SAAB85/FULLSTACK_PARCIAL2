@@ -1,13 +1,16 @@
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Inicio from './pages/Inicio.jsx'
+import Nosotros from './pages/Nosotros.jsx'
 
 function App() {
+  const pagina = new URLSearchParams(window.location.search).get('pagina')
+
   return (
     <div className="app-shell">
-      <Navbar />
+      <Navbar pagina={pagina} />
       <main className="app">
-        <Inicio />
+        {pagina === 'nosotros' ? <Nosotros /> : <Inicio />}
       </main>
     </div>
   )

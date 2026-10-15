@@ -55,6 +55,7 @@
 }
 
 .navbar-link:hover,
+.navbar-link[aria-current="page"],
 .navbar-link:focus-visible {
   color: #ffc107;
 }
