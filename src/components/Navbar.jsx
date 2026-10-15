@@ -42,8 +42,8 @@ function Navbar({ pagina }) {
             className={`navbar-links ${isMenuOpen ? 'navbar-links--open' : ''}`}
             id="navbar-links"
           >
-            <li><a className="navbar-link" href="./index.html" aria-current={pagina !== 'nosotros' ? 'page' : undefined}>Inicio</a></li>
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Productos</a></li>
+            <li><a className="navbar-link" href="./index.html" aria-current={pagina !== 'nosotros' && pagina !== 'productos' ? 'page' : undefined}>Inicio</a></li>
+            <li><a className="navbar-link" href="./index.html?pagina=productos" aria-current={pagina === 'productos' ? 'page' : undefined}>Productos</a></li>
             <li><a className="navbar-link" href="./index.html?pagina=nosotros" aria-current={pagina === 'nosotros' ? 'page' : undefined}>Quiénes somos</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Blogs</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Contacto</a></li>

@@ -3,10 +3,6 @@ import ProductoDestacado from './ProductoDestacado.jsx'
 import './ProductosDestacados.css'
 
 function ProductosDestacados() {
-  function handlePlaceholderClick(event) {
-    event.preventDefault()
-  }
-
   return (
     <section className="productos" aria-labelledby="destacados-titulo">
       <h2 id="destacados-titulo" className="productos-titulo">Productos destacados</h2>
@@ -16,7 +12,7 @@ function ProductosDestacados() {
         ))}
       </ul>
       <div className="productos-catalogo">
-        <a className="productos-catalogo-boton" href="#" onClick={handlePlaceholderClick}>
+        <a className="productos-catalogo-boton" href="./index.html?pagina=productos">
           Revisar catálogo
         </a>
       </div>

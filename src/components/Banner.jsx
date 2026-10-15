@@ -1,17 +1,13 @@
 import './Banner.css'
 
 function Banner() {
-  function handlePlaceholderClick(event) {
-    event.preventDefault()
-  }
-
   return (
     <section className="banner" aria-label="Presentación de la ferretería">
       <div className="banner-container">
         <div className="banner-texto">
           <h1>Todo lo que necesitas para construir y reparar.</h1>
           <p>Materiales de construcción, herramientas y ferretería general en La Serena.</p>
-          <a className="banner-boton" href="#" onClick={handlePlaceholderClick}>
+          <a className="banner-boton" href="./index.html?pagina=productos">
             Ver productos
           </a>
         </div>
