@@ -11,6 +11,7 @@ function Productos() {
             <div>
               <p className="producto-categoria">Categoría: {producto.categoria}</p>
               <h2 className="producto-nombre">{producto.nombre}</h2>
+              <p className="producto-precio">Precio: ${producto.precio}</p>
             </div>
           </li>
         ))}
