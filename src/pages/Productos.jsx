@@ -9,6 +9,7 @@ function Productos() {
         {productos.map((producto) => (
           <li className="producto" key={producto.id}>
             <div>
+              <p className="producto-categoria">Categoría: {producto.categoria}</p>
               <h2 className="producto-nombre">{producto.nombre}</h2>
             </div>
           </li>
