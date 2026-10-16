@@ -16,6 +16,10 @@ function App() {
     contenido = <Productos />
   }
 
+  if (pagina === 'AdminUsuarios') {
+    contenido = <AdminUsuarios />
+  }
+
   return (
     <div className="app-shell">
       <Navbar pagina={pagina} />

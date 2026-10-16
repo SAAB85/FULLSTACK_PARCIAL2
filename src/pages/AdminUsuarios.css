@@ -1,0 +1,60 @@
+.admin-users {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.admin-users__heading p,
+.admin-users__heading h2,
+.admin-users__panel h3 {
+    margin: 0;
+}
+
+.admin-users__heading p {
+    margin-bottom: 0.25rem;
+    color: #6b7280;
+}
+
+.admin-users__heading h2 {
+    font-size: 1.6rem;
+}
+
+.admin-users__panel {
+    min-width: 0;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.admin-users__panel h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.admin-users__table-wrap {
+    overflow-x: auto;
+}
+
+.admin-users__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-users__table th,
+.admin-users__table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.admin-users__table th {
+    color: #374151;
+    background: #f9fafb;
+}
+
+@media (max-width: 700px) {
+    .admin-users__panel {
+        padding: 1rem;
+    }
+}
