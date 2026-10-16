@@ -20,6 +20,14 @@ function App() {
     contenido = <AdminUsuarios />
   }
 
+  if (pagina === 'AdminProductos') {
+    contenido = <AdminProductos />
+  }
+
+  if (pagina === 'AdminInicio') {
+    contenido = <AdminInicio />
+  }
+
   return (
     <div className="app-shell">
       <Navbar pagina={pagina} />
