@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import CampoFormulario from './CampoFormulario.jsx'
-import validarUsuario from '../utils/validarUsuario.js'
+import validarUsuario from '../validaciones/validarUsuario.js'
 
 const VALORES_INICIALES = {
     run: '',
