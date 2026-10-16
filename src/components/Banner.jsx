@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Banner.css'
 
 function Banner() {
@@ -7,9 +8,9 @@ function Banner() {
         <div className="banner-texto">
           <h1>Todo lo que necesitas para construir y reparar.</h1>
           <p>Materiales de construcción, herramientas y ferretería general en La Serena.</p>
-          <a className="banner-boton" href="./index.html?pagina=productos">
+          <Link className="banner-boton" to="/productos">
             Ver productos
-          </a>
+          </Link>
         </div>
         <div className="banner-imagen">
           <img

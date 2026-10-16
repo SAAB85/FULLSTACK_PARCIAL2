@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './FerreteriaCerca.css'
 
 function FerreteriaCerca() {
@@ -12,7 +13,7 @@ function FerreteriaCerca() {
             Somos un negocio familiar con 22 años de trayectoria, atendido por
             personas que conocen el trabajo en obra y las necesidades del hogar.
           </p>
-          <a href="./index.html?pagina=nosotros">Conoce más sobre nosotros</a>
+          <Link to="/nosotros">Conoce más sobre nosotros</Link>
         </div>
         <div className="ferreteria-cerca-imagen">
           <div className="ferreteria-cerca-tarjeta">

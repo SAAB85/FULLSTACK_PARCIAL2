@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
-function Navbar({ pagina }) {
+function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   function handlePlaceholderClick(event) {
@@ -42,9 +43,9 @@ function Navbar({ pagina }) {
             className={`navbar-links ${isMenuOpen ? 'navbar-links--open' : ''}`}
             id="navbar-links"
           >
-            <li><a className="navbar-link" href="./index.html" aria-current={pagina !== 'nosotros' && pagina !== 'productos' ? 'page' : undefined}>Inicio</a></li>
-            <li><a className="navbar-link" href="./index.html?pagina=productos" aria-current={pagina === 'productos' ? 'page' : undefined}>Productos</a></li>
-            <li><a className="navbar-link" href="./index.html?pagina=nosotros" aria-current={pagina === 'nosotros' ? 'page' : undefined}>Quiénes somos</a></li>
+            <li><NavLink className="navbar-link" to="/" end>Inicio</NavLink></li>
+            <li><NavLink className="navbar-link" to="/productos">Productos</NavLink></li>
+            <li><NavLink className="navbar-link" to="/nosotros">Quiénes somos</NavLink></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Blogs</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Contacto</a></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Ingresar</a></li>

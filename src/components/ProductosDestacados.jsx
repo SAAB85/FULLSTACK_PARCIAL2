@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import productosDestacados from '../data/productos.js'
 import ProductoDestacado from './ProductoDestacado.jsx'
 import './ProductosDestacados.css'
@@ -12,9 +13,9 @@ function ProductosDestacados() {
         ))}
       </ul>
       <div className="productos-catalogo">
-        <a className="productos-catalogo-boton" href="./index.html?pagina=productos">
+        <Link className="productos-catalogo-boton" to="/productos">
           Revisar catálogo
-        </a>
+        </Link>
       </div>
     </section>
   )
