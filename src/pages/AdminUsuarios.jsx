@@ -1,5 +1,6 @@
 import AdminLayout from '../components/AdminLayout.jsx'
 import FormularioUsuario from '../components/FormularioUsuario.jsx'
+import './AdminPage.css'
 import './AdminUsuarios.css'
 
 const USUARIOS = [
@@ -9,7 +10,7 @@ const USUARIOS = [
 
 function AdminUsuarios() {
     return (
-        <AdminLayout seccionActiva="usuarios">
+        <AdminLayout>
             <section className="admin-users">
                 <div className="admin-users__heading">
                     <p>Administración</p>

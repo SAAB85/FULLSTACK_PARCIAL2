@@ -1,3 +1,5 @@
+import categorias from '../data/categorias.js'
+
 function validarProducto(producto) {
     const errores = {}
     const codigo = producto.codigo?.trim() ?? ''
@@ -40,7 +42,7 @@ function validarProducto(producto) {
         errores.stockCritico = 'Ingresa una cantidad entera igual o mayor que 0.'
     }
 
-    if (!CATEGORIAS.includes(producto.categoria)) {
+    if (!categorias.includes(producto.categoria)) {
         errores.categoria = 'Selecciona una categoría.'
     }
 

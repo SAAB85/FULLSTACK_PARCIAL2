@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
@@ -20,7 +21,7 @@ function Footer() {
             <nav className="pie-enlaces" aria-label="Enlaces del pie de página">
               <a href="#" onClick={handlePlaceholderClick}>Contacto</a>
               <a href="#" onClick={handlePlaceholderClick}>Ingresar</a>
-              <a href="#" onClick={handlePlaceholderClick}>Administración</a>
+              <Link to="/admin">Administración</Link>
             </nav>
           </div>
         </div>

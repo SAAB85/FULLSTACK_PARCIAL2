@@ -1,6 +1,7 @@
+import { Link, NavLink } from 'react-router-dom'
 import './AdminLayout.css'
 
-function AdminLayout({ seccionActiva, children }) {
+function AdminLayout({ children }) {
     return (
         <div className="admin-layout">
             <header className="admin-header">
@@ -8,15 +9,15 @@ function AdminLayout({ seccionActiva, children }) {
                     <p className="admin-header__eyebrow">Panel administrativo</p>
                     <h1>Administración</h1>
                 </div>
-                <a className="admin-header__link" href="/">Volver a la tienda</a>
+                <Link className="admin-header__link" to="/">Volver a la tienda</Link>
             </header>
 
             <div className="admin-layout__body">
                 <nav className="admin-menu" aria-label="Administración">
                     <h2>Administración</h2>
-                    <a href="/?pagina=admin" aria-current={seccionActiva === 'inicio' ? 'page' : undefined}>Inicio</a>
-                    <a href="/?pagina=admin-productos" aria-current={seccionActiva === 'productos' ? 'page' : undefined}>Productos</a>
-                    <a href="/?pagina=admin-usuarios" aria-current={seccionActiva === 'usuarios' ? 'page' : undefined}>Usuarios</a>
+                    <NavLink to="/admin" end>Inicio</NavLink>
+                    <NavLink to="/admin/productos">Productos</NavLink>
+                    <NavLink to="/admin/usuarios">Usuarios</NavLink>
                 </nav>
 
                 <main className="admin-layout__content">{children}</main>

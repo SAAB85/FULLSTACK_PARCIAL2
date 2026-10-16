@@ -1,0 +1,120 @@
+.admin-page {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.admin-page__heading p,
+.admin-page__heading h2 {
+    margin: 0;
+}
+
+.admin-page__heading p {
+    margin-bottom: 0.25rem;
+    color: #6b7280;
+}
+
+.admin-page__heading h2 {
+    font-size: 1.6rem;
+}
+
+.admin-dashboard-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.admin-panel {
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.admin-panel h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.admin-panel a {
+    color: #064d86;
+}
+
+.admin-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.admin-field--wide {
+    grid-column: 1 / -1;
+}
+
+.admin-label {
+    font-weight: 600;
+    color: #374151;
+}
+
+.admin-control {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    font: inherit;
+    color: #222;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+.admin-control:focus {
+    outline: 2px solid #064d86;
+    outline-offset: 1px;
+    border-color: #064d86;
+}
+
+.admin-control[aria-invalid='true'] {
+    border-color: #b91c1c;
+}
+
+.admin-error {
+    margin: 0;
+    color: #b91c1c;
+    font-size: 0.85rem;
+}
+
+.admin-submit {
+    justify-self: start;
+    padding: 0.6rem 1.1rem;
+    color: #fff;
+    background: #06345e;
+    border: none;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-submit:hover {
+    background: #064d86;
+}
+
+.admin-status {
+    margin: 0;
+    color: #1f2937;
+}
+
+@media (max-width: 700px) {
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
