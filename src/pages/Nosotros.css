@@ -1,32 +1,17 @@
-.nosotros {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 35px 20px;
-}
-
 .nosotros h1,
 .nosotros h2 {
   color: #06345e;
 }
 
-.nosotros-contenido {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
 .nosotros-tarjeta {
-  min-width: 0;
-  padding: 24px;
   border: 1px solid #ddd;
-  background: white;
 }
 
-.nosotros-tarjeta img {
+.nosotros-logo {
   display: block;
   width: 200px;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 8px;
 }
 
 .nosotros-tarjeta p {
@@ -34,13 +19,5 @@
 }
 
 .nosotros-tarjeta iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
   border: 0;
-}
-
-@media (max-width: 768px) {
-  .nosotros-contenido {
-    grid-template-columns: 1fr;
-  }
 }

@@ -1,35 +1,21 @@
 .pie {
   padding: 30px 0 20px;
   background: #06345e;
-  color: white;
+  color: #fff;
 }
 
-.pie-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.pie-columnas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.pie-columna h2 {
+.pie h2 {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
-.pie-enlaces {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
+.pie small {
+  color: #fff;
 }
 
 .pie-enlaces a {
-  color: white;
+  color: #fff;
+  text-decoration: none;
 }
 
 .pie-enlaces a:hover,
@@ -41,14 +27,5 @@
   margin: 20px 0 12px;
   border: 0;
   border-top: 1px solid rgb(255 255 255 / 30%);
-}
-
-.pie small {
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .pie-columnas {
-    grid-template-columns: 1fr;
-  }
+  opacity: 1;
 }

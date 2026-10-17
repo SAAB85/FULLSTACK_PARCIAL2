@@ -1,60 +1,41 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Navbar as BsNavbar, Nav, Container } from 'react-bootstrap'
 import './Navbar.css'
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  function handlePlaceholderClick(event) {
-    event.preventDefault()
-  }
-
   return (
-    <header className="site-header">
-      <nav className="site-navbar" aria-label="Navegación principal">
-        <div className="navbar-container">
-          <div className="navbar-brand">
-            <img
-              src="/assets/img/logo-ferreteria-los-maestros.png"
-              alt=""
-            />
-            <span className="navbar-brand-text">
-              Los Maestros
-              <small>Materiales y herramientas</small>
-            </span>
-          </div>
+    <BsNavbar expand="lg" className="site-navbar" variant="dark" collapseOnSelect>
+      <Container>
+        <BsNavbar.Brand as={NavLink} to="/" className="navbar-brand d-flex align-items-center gap-2">
+          <img
+            src="/assets/img/logo-ferreteria-los-maestros.png"
+            alt=""
+            width="44"
+            height="44"
+            className="navbar-brand-logo"
+          />
+          <span className="navbar-brand-text">
+            Los Maestros
+            <small className="d-block">Materiales y herramientas</small>
+          </span>
+        </BsNavbar.Brand>
 
-          <button
-            className={`navbar-toggle ${isMenuOpen ? 'navbar-toggle--open' : ''}`}
-            type="button"
-            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={isMenuOpen}
-            aria-controls="navbar-links"
-            onClick={() => setIsMenuOpen((menuOpen) => !menuOpen)}
-          >
-            <span className="navbar-toggle-lines" aria-hidden="true">
-              <span className="navbar-toggle-line" />
-              <span className="navbar-toggle-line" />
-              <span className="navbar-toggle-line" />
-            </span>
-          </button>
+        <BsNavbar.Toggle aria-controls="navbar-links" className="navbar-toggle" />
 
-          <ul
-            className={`navbar-links ${isMenuOpen ? 'navbar-links--open' : ''}`}
-            id="navbar-links"
-          >
-            <li><NavLink className="navbar-link" to="/" end>Inicio</NavLink></li>
-            <li><NavLink className="navbar-link" to="/productos">Productos</NavLink></li>
-            <li><NavLink className="navbar-link" to="/nosotros">Quiénes somos</NavLink></li>
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Blogs</a></li>
-            <li><NavLink className="navbar-link" to="/contacto">Contacto</NavLink></li>
-            <li><NavLink className="navbar-link" to="/registro">Registrarse</NavLink></li>
-            <li><NavLink className="navbar-link" to="/login">Ingresar</NavLink></li>
-            <li><NavLink className="navbar-link" to="/checkout">Carrito</NavLink></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+        <BsNavbar.Collapse id="navbar-links">
+          <Nav className="navbar-links ms-auto">
+            <Nav.Link as={NavLink} to="/" end>Inicio</Nav.Link>
+            <Nav.Link as={NavLink} to="/productos">Productos</Nav.Link>
+            <Nav.Link as={NavLink} to="/nosotros">Quiénes somos</Nav.Link>
+            <Nav.Link as={NavLink} to="/blogs">Blogs</Nav.Link>
+            <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
+            <Nav.Link as={NavLink} to="/registro">Registrarse</Nav.Link>
+            <Nav.Link as={NavLink} to="/login">Ingresar</Nav.Link>
+            <Nav.Link as={NavLink} to="/checkout">Carrito</Nav.Link>
+          </Nav>
+        </BsNavbar.Collapse>
+      </Container>
+    </BsNavbar>
   )
 }
 

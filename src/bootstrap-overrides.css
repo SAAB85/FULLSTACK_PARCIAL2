@@ -1,0 +1,44 @@
+/* Ajustes de marca sobre Bootstrap (Ferretería Los Maestros - Evaluación 1) */
+:root {
+  --marca-azul: #06345e;
+  --marca-azul-hover: #064d86;
+  --marca-ambar: #ffc107;
+}
+
+.bg-marca {
+  background-color: var(--marca-azul) !important;
+}
+
+.btn-marca {
+  --bs-btn-bg: var(--marca-ambar);
+  --bs-btn-border-color: var(--marca-ambar);
+  --bs-btn-color: #1a1a1a;
+  --bs-btn-hover-bg: #e0a800;
+  --bs-btn-hover-border-color: #e0a800;
+  --bs-btn-hover-color: #1a1a1a;
+  --bs-btn-active-bg: #d39e00;
+  --bs-btn-active-border-color: #d39e00;
+  --bs-btn-active-color: #1a1a1a;
+  font-weight: 600;
+}
+
+.btn-azul {
+  --bs-btn-bg: var(--marca-azul);
+  --bs-btn-border-color: var(--marca-azul);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--marca-azul-hover);
+  --bs-btn-hover-border-color: var(--marca-azul-hover);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: #052c4f;
+  --bs-btn-active-border-color: #052c4f;
+  --bs-btn-active-color: #fff;
+  font-weight: 600;
+}
+
+.link-marca {
+  color: var(--marca-azul-hover);
+}
+
+.link-marca:hover {
+  color: var(--marca-azul);
+}

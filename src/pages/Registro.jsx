@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom'
+import { Container, Card } from 'react-bootstrap'
 import FormularioRegistro from '../components/FormularioRegistro.jsx'
-import './AdminPage.css'
 
 function Registro({ onRegistrarUsuario }) {
     return (
-        <main className="admin-panel">
-            <h1>Registro de usuario</h1>
-            <FormularioRegistro onSubmit={onRegistrarUsuario} />
-            <p>¿Ya tienes cuenta? <Link to="/login">Ingresa aquí</Link>.</p>
-        </main>
+        <Container className="py-4">
+            <Card className="mx-auto" style={{ maxWidth: '820px' }}>
+                <Card.Body>
+                    <h1>Registro de usuario</h1>
+                    <FormularioRegistro onSubmit={onRegistrarUsuario} />
+                    <p className="mt-3 mb-0">¿Ya tienes cuenta? <Link to="/login" className="link-marca">Ingresa aquí</Link>.</p>
+                </Card.Body>
+            </Card>
+        </Container>
     )
 }
 

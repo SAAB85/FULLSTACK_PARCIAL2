@@ -1,21 +1,23 @@
 import { Link, useParams } from 'react-router-dom'
-import './Checkout.css'
+import { Container, Alert } from 'react-bootstrap'
 
 function ResultadoCompra() {
     const { resultado } = useParams()
     const compraAprobada = resultado === 'aprobado'
 
     return (
-        <main className="checkout-page checkout-result">
-            <h1>{compraAprobada ? 'Compra simulada aprobada' : 'Pago simulado rechazado'}</h1>
-            <p>{compraAprobada
-                ? 'La compra de demostración terminó correctamente.'
-                : 'La compra no se completó. Puedes intentarlo nuevamente.'}</p>
-            <div className="checkout-result__links">
-                <Link to="/productos">Volver a productos</Link>
-                {!compraAprobada && <Link to="/checkout">Intentar nuevamente</Link>}
+        <Container className="py-4" style={{ maxWidth: '820px' }}>
+            <Alert variant={compraAprobada ? 'success' : 'danger'}>
+                <Alert.Heading>{compraAprobada ? 'Compra simulada aprobada' : 'Pago simulado rechazado'}</Alert.Heading>
+                <p className="mb-0">{compraAprobada
+                    ? 'La compra de demostración terminó correctamente.'
+                    : 'La compra no se completó. Puedes intentarlo nuevamente.'}</p>
+            </Alert>
+            <div className="d-flex flex-wrap gap-3">
+                <Link to="/productos" className="link-marca">Volver a productos</Link>
+                {!compraAprobada && <Link to="/checkout" className="link-marca">Intentar nuevamente</Link>}
             </div>
-        </main>
+        </Container>
     )
 }
 

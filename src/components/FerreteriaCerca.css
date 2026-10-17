@@ -1,24 +1,6 @@
 .ferreteria-cerca {
   padding: 35px 0;
-  background: white;
-}
-
-.ferreteria-cerca-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.ferreteria-cerca-texto {
-  flex: 7;
-}
-
-.ferreteria-cerca-imagen {
-  flex: 5;
+  background: #fff;
 }
 
 .ferreteria-cerca-titulo {
@@ -26,28 +8,13 @@
   color: #06345e;
 }
 
-.ferreteria-cerca-texto p {
-  line-height: 1.6;
-}
-
-.ferreteria-cerca-texto a {
-  color: #064d86;
-}
-
 .ferreteria-cerca-tarjeta {
   padding: 8px;
   border: 1px solid #ddd;
-  background: white;
+  background: #fff;
 }
 
 .ferreteria-cerca-tarjeta img {
   display: block;
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  .ferreteria-cerca-container {
-    flex-direction: column;
-    text-align: center;
-  }
 }

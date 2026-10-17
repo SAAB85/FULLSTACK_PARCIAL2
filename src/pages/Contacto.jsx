@@ -1,30 +1,35 @@
+import { Container, Card, ListGroup } from 'react-bootstrap'
 import FormularioContacto from '../components/FormularioContacto.jsx'
-import './AdminPage.css'
 
 function Contacto({ mensajes, onEnviarMensaje }) {
     return (
-        <main className="admin-panel">
+        <Container className="py-4">
             <h1>Contacto</h1>
             <p>Envíanos tu consulta y te responderemos en la tienda.</p>
-            <FormularioContacto onSubmit={onEnviarMensaje} />
+
+            <Card className="mb-4">
+                <Card.Body>
+                    <FormularioContacto onSubmit={onEnviarMensaje} />
+                </Card.Body>
+            </Card>
 
             <section aria-labelledby="mensajes-sesion">
-                <h2 id="mensajes-sesion">Consultas de esta sesión</h2>
+                <h2 id="mensajes-sesion" className="h4">Consultas de esta sesión</h2>
                 {mensajes.length === 0 ? (
                     <p>Aún no hay consultas enviadas.</p>
                 ) : (
-                    <ul>
+                    <ListGroup>
                         {mensajes.map((mensaje) => (
-                            <li key={mensaje.id}>
+                            <ListGroup.Item key={mensaje.id}>
                                 <strong>{mensaje.nombre}</strong>
                                 {mensaje.correo && <span> · {mensaje.correo}</span>}
-                                <p>{mensaje.comentario}</p>
-                            </li>
+                                <p className="mb-0">{mensaje.comentario}</p>
+                            </ListGroup.Item>
                         ))}
-                    </ul>
+                    </ListGroup>
                 )}
             </section>
-        </main>
+        </Container>
     )
 }
 

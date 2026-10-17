@@ -5,19 +5,9 @@
 }
 
 .admin-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.25rem clamp(1rem, 4vw, 3rem);
+    padding: 1.25rem 0;
     color: #fff;
     background: #263238;
-}
-
-.admin-header h1,
-.admin-header__eyebrow,
-.admin-menu h2 {
-    margin: 0;
 }
 
 .admin-header h1 {
@@ -25,36 +15,11 @@
 }
 
 .admin-header__eyebrow {
-    margin-bottom: 0.25rem;
     color: #cfd8dc;
     font-size: 0.85rem;
 }
 
-.admin-header__link {
-    color: #fff;
-}
-
-.admin-header__button {
-    padding: 0;
-    font: inherit;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-}
-
-.admin-layout__body {
-    display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
-    gap: 1.5rem;
-    width: min(1200px, 100%);
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-
 .admin-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
     gap: 0.35rem;
     padding: 1rem;
     background: #fff;
@@ -62,39 +27,19 @@
     border-radius: 6px;
 }
 
-.admin-menu h2 {
-    margin-bottom: 0.65rem;
-    font-size: 1rem;
-}
-
-.admin-menu a {
+.admin-menu .nav-link {
     padding: 0.65rem 0.75rem;
     color: #263238;
-    text-decoration: none;
     border-radius: 4px;
 }
 
-.admin-menu a:hover,
-.admin-menu a[aria-current='page'] {
+.admin-menu .nav-link:hover,
+.admin-menu .nav-link.active,
+.admin-menu .nav-link[aria-current='page'] {
+    color: #06345e;
     background: #eceff1;
 }
 
 .admin-layout__content {
     min-width: 0;
-}
-
-@media (max-width: 700px) {
-    .admin-layout__body {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-
-    .admin-menu {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .admin-menu h2 {
-        flex-basis: 100%;
-    }
 }

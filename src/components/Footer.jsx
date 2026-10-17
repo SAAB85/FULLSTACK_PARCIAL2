@@ -1,33 +1,30 @@
 import { Link } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap'
 import './Footer.css'
 
 function Footer() {
-  function handlePlaceholderClick(event) {
-    event.preventDefault()
-  }
-
   const anio = new Date().getFullYear()
 
   return (
     <footer className="pie">
-      <div className="pie-container">
-        <div className="pie-columnas">
-          <div className="pie-columna">
+      <Container>
+        <Row className="g-4">
+          <Col md={6}>
             <h2>Ferretería Los Maestros</h2>
             <small>Materiales, herramientas y ferretería general.</small>
-          </div>
-          <div className="pie-columna">
+          </Col>
+          <Col md={6}>
             <h2>Enlaces</h2>
-            <nav className="pie-enlaces" aria-label="Enlaces del pie de página">
-              <a href="#" onClick={handlePlaceholderClick}>Contacto</a>
-              <a href="#" onClick={handlePlaceholderClick}>Ingresar</a>
+            <nav className="pie-enlaces d-flex flex-wrap gap-3" aria-label="Enlaces del pie de página">
+              <Link to="/contacto">Contacto</Link>
+              <Link to="/login">Ingresar</Link>
               <Link to="/admin">Administración</Link>
             </nav>
-          </div>
-        </div>
+          </Col>
+        </Row>
         <hr />
         <small>© {anio} Ferretería Los Maestros · La Serena</small>
-      </div>
+      </Container>
     </footer>
   )
 }

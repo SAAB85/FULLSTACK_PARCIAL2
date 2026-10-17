@@ -7,6 +7,7 @@ import Inicio from './pages/Inicio.jsx'
 import Nosotros from './pages/Nosotros.jsx'
 import Productos from './pages/Productos.jsx'
 import Contacto from './pages/Contacto.jsx'
+import Blogs from './pages/Blogs.jsx'
 import AdminInicio from './pages/AdminInicio.jsx'
 import AdminProductos from './pages/AdminProductos.jsx'
 import AdminUsuarios from './pages/AdminUsuarios.jsx'
@@ -95,11 +96,12 @@ function App() {
         <Route path="/productos" element={<Productos productos={productos} />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto mensajes={mensajes} onEnviarMensaje={guardarMensaje} />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/login" element={<Login onLogin={iniciarSesion} />} />
         <Route path="/registro" element={<Registro onRegistrarUsuario={guardarUsuario} />} />
         <Route path="/checkout" element={<Checkout productos={productos} />} />
         <Route path="/compra/:resultado" element={<ResultadoCompra />} />
-        <Route path="*" element={<Inicio />} />
+        <Route path="*" element={<Inicio productos={productos} />} />
       </Route>
       <Route element={<RutaAdministracion autenticado={administradorAutenticado} />}>
         <Route path="/admin" element={<AdminInicio onCerrarSesion={cerrarSesion} />} />

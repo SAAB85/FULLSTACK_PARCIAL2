@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Form, Row, Col, Button, Alert } from 'react-bootstrap'
 import CampoFormulario from './CampoFormulario.jsx'
 import validarUsuario from '../validaciones/validarUsuario.js'
 
@@ -48,24 +49,42 @@ function FormularioRegistro({ onSubmit }) {
         setMensaje('Registro guardado en esta sesión.')
     }
 
+    const variante = mensaje === 'Revisa los campos marcados.' ? 'danger' : 'success'
+
     return (
-        <form className="admin-form" noValidate onSubmit={handleSubmit}>
-            <div className="admin-form-grid">
-                <CampoFormulario id="run" label="RUN" value={usuario.run} onChange={handleChange} error={errores.run} minLength={7} maxLength={9} placeholder="19011022K" required />
-                <CampoFormulario id="nombre" label="Nombre" value={usuario.nombre} onChange={handleChange} error={errores.nombre} maxLength={50} required autoComplete="given-name" />
-                <CampoFormulario id="apellidos" label="Apellidos" value={usuario.apellidos} onChange={handleChange} error={errores.apellidos} maxLength={100} required autoComplete="family-name" />
-                <CampoFormulario id="correo" label="Correo" type="email" value={usuario.correo} onChange={handleChange} error={errores.correo} maxLength={100} required autoComplete="email" />
-                <CampoFormulario id="contrasena" label="Contraseña" type="password" value={usuario.contrasena} onChange={handleChange} error={errores.contrasena} minLength={4} maxLength={10} required autoComplete="new-password" />
-                <CampoFormulario id="confirmarClave" label="Confirmar contraseña" type="password" value={usuario.confirmarClave} onChange={handleChange} error={errores.confirmarClave} minLength={4} maxLength={10} required autoComplete="new-password" />
-                <CampoFormulario id="region" label="Región" value={usuario.region} onChange={handleChange} error={errores.region} options={REGIONES} required />
-                <CampoFormulario id="comuna" label="Comuna" value={usuario.comuna} onChange={handleChange} error={errores.comuna} options={COMUNAS} required />
-                <div className="admin-field--wide">
+        <Form noValidate onSubmit={handleSubmit}>
+            <Row className="g-3">
+                <Col md={6}>
+                    <CampoFormulario id="run" label="RUN" value={usuario.run} onChange={handleChange} error={errores.run} minLength={7} maxLength={9} placeholder="19011022K" required />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="nombre" label="Nombre" value={usuario.nombre} onChange={handleChange} error={errores.nombre} maxLength={50} required autoComplete="given-name" />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="apellidos" label="Apellidos" value={usuario.apellidos} onChange={handleChange} error={errores.apellidos} maxLength={100} required autoComplete="family-name" />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="correo" label="Correo" type="email" value={usuario.correo} onChange={handleChange} error={errores.correo} maxLength={100} required autoComplete="email" />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="contrasena" label="Contraseña" type="password" value={usuario.contrasena} onChange={handleChange} error={errores.contrasena} minLength={4} maxLength={10} required autoComplete="new-password" />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="confirmarClave" label="Confirmar contraseña" type="password" value={usuario.confirmarClave} onChange={handleChange} error={errores.confirmarClave} minLength={4} maxLength={10} required autoComplete="new-password" />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="region" label="Región" value={usuario.region} onChange={handleChange} error={errores.region} options={REGIONES} required />
+                </Col>
+                <Col md={6}>
+                    <CampoFormulario id="comuna" label="Comuna" value={usuario.comuna} onChange={handleChange} error={errores.comuna} options={COMUNAS} required />
+                </Col>
+                <Col xs={12}>
                     <CampoFormulario id="direccion" label="Dirección" value={usuario.direccion} onChange={handleChange} error={errores.direccion} maxLength={300} required autoComplete="street-address" />
-                </div>
-            </div>
-            <button className="admin-submit" type="submit">Registrarme</button>
-            {mensaje && <p className="admin-status" role="status">{mensaje}</p>}
-        </form>
+                </Col>
+            </Row>
+            <Button type="submit" className="btn-azul mt-3">Registrarme</Button>
+            {mensaje && <Alert variant={variante} role="status" className="mt-3 mb-0">{mensaje}</Alert>}
+        </Form>
     )
 }
 

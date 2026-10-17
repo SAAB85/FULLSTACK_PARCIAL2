@@ -1,3 +1,5 @@
+import { Form } from 'react-bootstrap'
+
 function CampoFormulario({
     id,
     label,
@@ -32,27 +34,32 @@ function CampoFormulario({
         placeholder,
         rows,
         autoComplete,
+        isInvalid: Boolean(error),
         'aria-invalid': Boolean(error),
         'aria-describedby': error ? errorId : undefined,
     }
 
     return (
-        <div className="admin-field">
-            <label className="admin-label" htmlFor={id}>{label}</label>
+        <Form.Group controlId={id}>
+            <Form.Label>{label}</Form.Label>
             {options ? (
-                <select className="admin-control" {...sharedProps}>
+                <Form.Select {...sharedProps}>
                     <option value="">Selecciona una opción</option>
                     {options.map((option) => (
                         <option key={option} value={option}>{option}</option>
                     ))}
-                </select>
+                </Form.Select>
             ) : as === 'textarea' ? (
-                <textarea className="admin-control" {...sharedProps} />
+                <Form.Control as="textarea" {...sharedProps} />
             ) : (
-                <input className="admin-control" type={type} {...sharedProps} />
+                <Form.Control type={type} {...sharedProps} />
             )}
-            {error && <p className="admin-error" id={errorId}>{error}</p>}
-        </div>
+            {error && (
+                <Form.Control.Feedback type="invalid" id={errorId} className="d-block">
+                    {error}
+                </Form.Control.Feedback>
+            )}
+        </Form.Group>
     )
 }
 
