@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function Blogs() {
   return (
@@ -11,6 +12,7 @@ function Blogs() {
             <Card.Body>
               <h2 className="h4">Cómo elegir materiales para una reparación</h2>
               <p>Revisa algunas recomendaciones antes de comenzar un proyecto en casa.</p>
+              <Link to="/blogs/materiales" className="link-marca">Leer más sobre materiales</Link>
             </Card.Body>
           </Card>
         </Col>
