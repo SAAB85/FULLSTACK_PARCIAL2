@@ -47,8 +47,9 @@ function Navbar() {
             <li><NavLink className="navbar-link" to="/productos">Productos</NavLink></li>
             <li><NavLink className="navbar-link" to="/nosotros">Quiénes somos</NavLink></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Blogs</a></li>
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Contacto</a></li>
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Ingresar</a></li>
+            <li><NavLink className="navbar-link" to="/contacto">Contacto</NavLink></li>
+            <li><NavLink className="navbar-link" to="/registro">Registrarse</NavLink></li>
+            <li><NavLink className="navbar-link" to="/login">Ingresar</NavLink></li>
             <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Carrito</a></li>
           </ul>
         </div>
