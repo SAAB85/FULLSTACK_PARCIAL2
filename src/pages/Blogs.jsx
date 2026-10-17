@@ -21,6 +21,7 @@ function Blogs() {
             <Card.Body>
               <h2 className="h4">Herramientas básicas para el hogar</h2>
               <p>Una selección de herramientas útiles para mantener y reparar tu hogar.</p>
+              <Link to="/blogs/herramientas" className="link-marca">Leer más sobre herramientas</Link>
             </Card.Body>
           </Card>
         </Col>

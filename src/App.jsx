@@ -9,6 +9,7 @@ import Productos from './pages/Productos.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Blogs from './pages/Blogs.jsx'
 import BlogMateriales from './pages/BlogMateriales.jsx'
+import BlogHerramientas from './pages/BlogHerramientas.jsx'
 import AdminInicio from './pages/AdminInicio.jsx'
 import AdminProductos from './pages/AdminProductos.jsx'
 import AdminUsuarios from './pages/AdminUsuarios.jsx'
@@ -99,6 +100,7 @@ function App() {
         <Route path="/contacto" element={<Contacto mensajes={mensajes} onEnviarMensaje={guardarMensaje} />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/materiales" element={<BlogMateriales />} />
+        <Route path="/blogs/herramientas" element={<BlogHerramientas />} />
         <Route path="/login" element={<Login onLogin={iniciarSesion} />} />
         <Route path="/registro" element={<Registro onRegistrarUsuario={guardarUsuario} />} />
         <Route path="/checkout" element={<Checkout productos={productos} />} />
