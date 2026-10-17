@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
-import productosDestacados from '../data/productos.js'
 import ProductoDestacado from './ProductoDestacado.jsx'
 import './ProductosDestacados.css'
 
-function ProductosDestacados() {
+function ProductosDestacados({ productos }) {
   return (
     <section className="productos" aria-labelledby="destacados-titulo">
       <h2 id="destacados-titulo" className="productos-titulo">Productos destacados</h2>
       <ul className="productos-lista">
-        {productosDestacados.map((producto) => (
-          <ProductoDestacado key={producto.id} producto={producto} />
+        {productos.map((producto) => (
+          <ProductoDestacado key={producto.codigo} producto={producto} />
         ))}
       </ul>
       <div className="productos-catalogo">

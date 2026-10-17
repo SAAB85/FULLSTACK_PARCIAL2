@@ -1,5 +1,4 @@
 import ProductoDestacado from '../components/ProductoDestacado.jsx'
-import productos from '../data/productos.js'
 import '../components/ProductosDestacados.css'
 import './Productos.css'
 
@@ -12,7 +11,7 @@ const CATEGORIAS_PROXIMAS = [
   'Jardín',
 ]
 
-function Productos() {
+function Productos({ productos }) {
   return (
     <section className="productos">
       <h1 className="productos-titulo">Productos</h1>
@@ -40,7 +39,7 @@ function Productos() {
         </h2>
         <ul className="productos-lista">
           {productos.map((producto) => (
-            <ProductoDestacado key={producto.id} producto={producto} />
+            <ProductoDestacado key={producto.codigo} producto={producto} />
           ))}
         </ul>
       </section>

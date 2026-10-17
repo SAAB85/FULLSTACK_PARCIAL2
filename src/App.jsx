@@ -12,7 +12,8 @@ import AdminProductos from './pages/AdminProductos.jsx'
 import AdminUsuarios from './pages/AdminUsuarios.jsx'
 import Login from './pages/Login.jsx'
 import Registro from './pages/Registro.jsx'
-import { MENSAJES_INICIALES, PRODUCTOS_INICIALES, USUARIOS_INICIALES } from './data/datosAdministracion.js'
+import { MENSAJES_INICIALES, USUARIOS_INICIALES } from './data/datosAdministracion.js'
+import { PRODUCTOS_INICIALES } from './data/productos.js'
 
 function TiendaLayout() {
   return (
@@ -62,8 +63,8 @@ function App() {
   return (
     <Routes>
       <Route element={<TiendaLayout />}>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/productos" element={<Productos />} />
+        <Route path="/" element={<Inicio productos={productos} />} />
+        <Route path="/productos" element={<Productos productos={productos} />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto mensajes={mensajes} onEnviarMensaje={guardarMensaje} />} />
         <Route path="/login" element={<Login />} />

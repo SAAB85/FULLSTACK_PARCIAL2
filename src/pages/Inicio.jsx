@@ -2,11 +2,11 @@ import Banner from '../components/Banner.jsx'
 import ProductosDestacados from '../components/ProductosDestacados.jsx'
 import FerreteriaCerca from '../components/FerreteriaCerca.jsx'
 
-function Inicio() {
+function Inicio({ productos }) {
   return (
     <>
       <Banner />
-      <ProductosDestacados />
+      <ProductosDestacados productos={productos} />
       <FerreteriaCerca />
     </>
   )

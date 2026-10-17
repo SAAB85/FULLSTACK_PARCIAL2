@@ -14,7 +14,7 @@ const VALORES_INICIALES = {
     imagen: '',
 }
 
-function FormularioProducto() {
+function FormularioProducto({ onSubmit }) {
     const [producto, setProducto] = useState(VALORES_INICIALES)
     const [errores, setErrores] = useState({})
     const [mensaje, setMensaje] = useState('')
@@ -35,7 +35,10 @@ function FormularioProducto() {
             return
         }
 
-        setMensaje('Producto validado correctamente.')
+        onSubmit?.(producto)
+        setProducto(VALORES_INICIALES)
+        setErrores({})
+        setMensaje('Producto guardado en esta sesión.')
     }
 
     return (

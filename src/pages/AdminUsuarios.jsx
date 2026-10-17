@@ -3,12 +3,7 @@ import FormularioUsuario from '../components/FormularioUsuario.jsx'
 import './AdminPage.css'
 import './AdminUsuarios.css'
 
-const USUARIOS = [
-    { run: '12.345.678-9', nombre: 'María González Soto', correo: 'maria@duoc.cl', tipo: 'Cliente', comuna: 'La Serena', estado: 'Registrado' },
-    { run: '17.654.321-0', nombre: 'Pedro Rojas Díaz', correo: 'pedro@duoc.cl', tipo: 'Vendedor', comuna: 'Coquimbo', estado: 'Registrado' },
-]
-
-function AdminUsuarios() {
+function AdminUsuarios({ usuarios, onGuardarUsuario }) {
     return (
         <AdminLayout>
             <section className="admin-users">
@@ -19,7 +14,7 @@ function AdminUsuarios() {
 
                 <section className="admin-users__panel" aria-labelledby="crear-usuario">
                     <h3 id="crear-usuario">Agregar usuario</h3>
-                    <FormularioUsuario />
+                    <FormularioUsuario onSubmit={onGuardarUsuario} />
                 </section>
 
                 <section className="admin-users__panel" aria-labelledby="lista-usuarios">
@@ -37,7 +32,7 @@ function AdminUsuarios() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {USUARIOS.map((usuario) => (
+                                {usuarios.map((usuario) => (
                                     <tr key={usuario.run}>
                                         <td>{usuario.run}</td>
                                         <td>{usuario.nombre}</td>

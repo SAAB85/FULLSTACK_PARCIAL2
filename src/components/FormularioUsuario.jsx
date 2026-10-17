@@ -45,7 +45,9 @@ function FormularioUsuarios({ onSubmit }) {
         delete datosUsuario.contrasena
         delete datosUsuario.confirmarClave
         onSubmit?.(datosUsuario, contrasena)
-        setMensaje('Datos validados correctamente.')
+        setUsuario(VALORES_INICIALES)
+        setErrores({})
+        setMensaje('Usuario guardado en esta sesión.')
     }
 
     return (

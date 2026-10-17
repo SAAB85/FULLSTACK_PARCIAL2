@@ -18,7 +18,7 @@ const VALORES_INICIALES = {
 const REGIONES = ['Coquimbo', 'Valparaíso', 'Metropolitana']
 const COMUNAS = ['La Serena', 'Coquimbo', 'Ovalle', 'Valparaíso', 'Viña del Mar', 'Santiago']
 
-function FormularioRegistro() {
+function FormularioRegistro({ onSubmit }) {
     const [usuario, setUsuario] = useState(VALORES_INICIALES)
     const [errores, setErrores] = useState({})
     const [mensaje, setMensaje] = useState('')
@@ -39,7 +39,13 @@ function FormularioRegistro() {
             return
         }
 
-        setMensaje('Datos validados. El registro aún no está conectado a un servidor.')
+        const datosUsuario = { ...usuario }
+        delete datosUsuario.contrasena
+        delete datosUsuario.confirmarClave
+        onSubmit?.(datosUsuario)
+        setUsuario(VALORES_INICIALES)
+        setErrores({})
+        setMensaje('Registro guardado en esta sesión.')
     }
 
     return (

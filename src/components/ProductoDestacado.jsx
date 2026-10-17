@@ -5,7 +5,7 @@ function ProductoDestacado({ producto }) {
 
   return (
     <li className="producto">
-      <img src={producto.imagen} alt={producto.nombre} />
+      {producto.imagen && <img src={producto.imagen} alt={producto.nombre} />}
       <div>
         <p className="producto-categoria">{producto.categoria}</p>
         <h3 className="producto-nombre">{producto.nombre}</h3>
