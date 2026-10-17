@@ -19,7 +19,7 @@ const VALORES_INICIALES = {
 const REGIONES = ['Coquimbo', 'Valparaíso', 'Metropolitana']
 const COMUNAS = ['La Serena', 'Coquimbo', 'Ovalle', 'Valparaíso', 'Viña del Mar', 'Santiago']
 
-function FormularioRegistro({ onSubmit }) {
+function FormularioRegistro({ onSubmit, runsExistentes = [] }) {
     const [usuario, setUsuario] = useState(VALORES_INICIALES)
     const [errores, setErrores] = useState({})
     const [mensaje, setMensaje] = useState('')
@@ -32,7 +32,7 @@ function FormularioRegistro({ onSubmit }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const erroresActuales = validarUsuario(usuario)
+        const erroresActuales = validarUsuario(usuario, { runsExistentes })
         setErrores(erroresActuales)
 
         if (Object.keys(erroresActuales).length > 0) {

@@ -116,10 +116,23 @@ function App() {
     setProductos((actuales) => codigoOriginal
       ? actuales.map((item) => item.codigo === codigoOriginal ? productoGuardado : item)
       : [...actuales, productoGuardado])
+
+    if (codigoOriginal) {
+      setCarrito((actual) => actual.flatMap((item) => {
+        if (item.codigo !== codigoOriginal) return [item]
+        if (productoGuardado.stock < 1) return []
+        return [{
+          ...item,
+          codigo: productoGuardado.codigo,
+          cantidad: Math.min(item.cantidad, productoGuardado.stock),
+        }]
+      }))
+    }
   }
 
   function eliminarProducto(codigo) {
     setProductos((actuales) => actuales.filter((producto) => producto.codigo !== codigo))
+    eliminarDelCarrito(codigo)
   }
 
   function guardarUsuario(usuario, runOriginal = '') {
@@ -172,7 +185,7 @@ function App() {
         <Route path="/blogs/materiales" element={<BlogMateriales />} />
         <Route path="/blogs/herramientas" element={<BlogHerramientas />} />
         <Route path="/login" element={<Login onLogin={iniciarSesion} />} />
-        <Route path="/registro" element={<Registro onRegistrarUsuario={guardarUsuario} />} />
+        <Route path="/registro" element={<Registro usuarios={usuarios} onRegistrarUsuario={guardarUsuario} />} />
         <Route path="/checkout" element={<Checkout productos={productos} carrito={carrito} onConfirmarCompra={confirmarCompra} />} />
         <Route path="/compra/:resultado" element={<ResultadoCompra compra={compraActual} />} />
         <Route path="*" element={<Inicio productos={productos} />} />
