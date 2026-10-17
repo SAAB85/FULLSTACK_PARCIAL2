@@ -1,8 +1,6 @@
-function ProductoDestacado({ producto }) {
-  function handlePlaceholderClick(event) {
-    event.preventDefault()
-  }
+import { Link } from 'react-router-dom'
 
+function ProductoDestacado({ producto }) {
   return (
     <li className="producto">
       {producto.imagen && <img src={producto.imagen} alt={producto.nombre} />}
@@ -10,9 +8,9 @@ function ProductoDestacado({ producto }) {
         <p className="producto-categoria">{producto.categoria}</p>
         <h3 className="producto-nombre">{producto.nombre}</h3>
         <p className="producto-precio">${producto.precio}</p>
-        <a className="producto-consultar" href="#" onClick={handlePlaceholderClick}>
-          Consultar
-        </a>
+        <Link className="producto-consultar" to={`/checkout?producto=${encodeURIComponent(producto.codigo)}`}>
+          Comprar
+        </Link>
       </div>
     </li>
   )

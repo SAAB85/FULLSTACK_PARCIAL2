@@ -1,6 +1,6 @@
 import categorias from '../data/categorias.js'
 
-function validarProducto(producto) {
+function validarProducto(producto, codigosExistentes = [], codigoOriginal = '') {
     const errores = {}
     const codigo = producto.codigo?.trim() ?? ''
     const nombre = producto.nombre?.trim() ?? ''
@@ -14,6 +14,8 @@ function validarProducto(producto) {
         errores.codigo = 'Este campo es obligatorio.'
     } else if (codigo.length < 3) {
         errores.codigo = 'Usa al menos 3 caracteres.'
+    } else if (codigo.toLowerCase() !== codigoOriginal.toLowerCase() && codigosExistentes.some((item) => item.toLowerCase() === codigo.toLowerCase())) {
+        errores.codigo = 'Ya existe un producto con este código.'
     }
 
     if (!nombre) {

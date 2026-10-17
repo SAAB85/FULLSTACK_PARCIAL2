@@ -11,10 +11,11 @@ const CAMPOS_OBLIGATORIOS = [
     'direccion',
 ]
 
-function validarUsuario(usuario) {
+function validarUsuario(usuario, { requiereContrasena = true, runsExistentes = [], runOriginal = '' } = {}) {
     const errores = {}
 
     for (const campo of CAMPOS_OBLIGATORIOS) {
+        if (!requiereContrasena && ['contrasena', 'confirmarClave'].includes(campo)) continue
         if (!usuario[campo]?.trim()) {
             errores[campo] = 'Este campo es obligatorio.'
         }
@@ -23,6 +24,8 @@ function validarUsuario(usuario) {
     const run = usuario.run?.trim().replace(/[.-]/g, '') ?? ''
     if (run && !/^\d{7,8}[0-9kK]$/.test(run)) {
         errores.run = 'Ingresa un RUN con formato válido.'
+    } else if (run && run.toUpperCase() !== runOriginal.replace(/[.-]/g, '').toUpperCase() && runsExistentes.some((item) => item.replace(/[.-]/g, '').toUpperCase() === run.toUpperCase())) {
+        errores.run = 'Ya existe un usuario con este RUN.'
     }
 
     const correo = usuario.correo?.trim() ?? ''
@@ -35,7 +38,7 @@ function validarUsuario(usuario) {
         errores.contrasena = 'Usa entre 4 y 10 caracteres.'
     }
 
-    if (usuario.confirmarClave && usuario.confirmarClave !== contrasena) {
+    if (usuario.confirmarClave !== contrasena && (usuario.confirmarClave || contrasena)) {
         errores.confirmarClave = 'Las contraseñas no coinciden.'
     }
 

@@ -1,0 +1,39 @@
+.checkout-page {
+    display: grid;
+    gap: 1rem;
+    width: min(820px, 100%);
+    margin: 0 auto;
+}
+
+.checkout-page h1,
+.checkout-page h2,
+.checkout-page p {
+    margin-top: 0;
+}
+
+.checkout-page h2 {
+    font-size: 1.2rem;
+}
+
+.checkout-simulation-note,
+.checkout-product-summary {
+    margin: 0;
+    color: #374151;
+}
+
+.checkout-result {
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.checkout-result__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.checkout-page a {
+    color: #064d86;
+}

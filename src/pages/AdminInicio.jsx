@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import AdminLayout from '../components/AdminLayout.jsx'
 import './AdminPage.css'
 
-function AdminInicio() {
+function AdminInicio({ onCerrarSesion }) {
     return (
-        <AdminLayout>
+        <AdminLayout onCerrarSesion={onCerrarSesion}>
             <section className="admin-page">
                 <div className="admin-page__heading">
                     <p>Administración</p>

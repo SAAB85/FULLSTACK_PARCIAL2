@@ -108,6 +108,43 @@
     background: #064d86;
 }
 
+.admin-form-actions,
+.admin-table-actions,
+.admin-header__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.admin-secondary,
+.admin-danger {
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    border: 1px solid #64748b;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-secondary {
+    color: #263238;
+    background: #fff;
+}
+
+.admin-danger {
+    color: #fff;
+    background: #a32222;
+    border-color: #a32222;
+}
+
+.admin-secondary:hover {
+    background: #f1f5f9;
+}
+
+.admin-danger:hover {
+    background: #7f1d1d;
+}
+
 .admin-status {
     margin: 0;
     color: #1f2937;

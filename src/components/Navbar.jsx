@@ -50,7 +50,7 @@ function Navbar() {
             <li><NavLink className="navbar-link" to="/contacto">Contacto</NavLink></li>
             <li><NavLink className="navbar-link" to="/registro">Registrarse</NavLink></li>
             <li><NavLink className="navbar-link" to="/login">Ingresar</NavLink></li>
-            <li><a className="navbar-link" href="#" onClick={handlePlaceholderClick}>Carrito</a></li>
+            <li><NavLink className="navbar-link" to="/checkout">Carrito</NavLink></li>
           </ul>
         </div>
       </nav>

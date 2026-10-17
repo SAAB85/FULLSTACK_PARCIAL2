@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import FormularioRegistro from '../components/FormularioRegistro.jsx'
+import './AdminPage.css'
 
 function Registro({ onRegistrarUsuario }) {
     return (

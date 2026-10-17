@@ -14,8 +14,16 @@ const VALORES_INICIALES = {
     imagen: '',
 }
 
-function FormularioProducto({ onSubmit }) {
-    const [producto, setProducto] = useState(VALORES_INICIALES)
+function crearValoresIniciales(initialValue) {
+    const valores = { ...VALORES_INICIALES, ...initialValue }
+    for (const campo of ['precio', 'stock', 'stockCritico']) {
+        if (valores[campo] !== '' && valores[campo] != null) valores[campo] = String(valores[campo])
+    }
+    return valores
+}
+
+function FormularioProducto({ onSubmit, initialValue, onCancel, codigosExistentes = [], codigoOriginal = '' }) {
+    const [producto, setProducto] = useState(() => crearValoresIniciales(initialValue))
     const [errores, setErrores] = useState({})
     const [mensaje, setMensaje] = useState('')
 
@@ -27,7 +35,7 @@ function FormularioProducto({ onSubmit }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const erroresActuales = validarProducto(producto)
+        const erroresActuales = validarProducto(producto, codigosExistentes, codigoOriginal)
         setErrores(erroresActuales)
 
         if (Object.keys(erroresActuales).length > 0) {
@@ -35,10 +43,10 @@ function FormularioProducto({ onSubmit }) {
             return
         }
 
-        onSubmit?.(producto)
-        setProducto(VALORES_INICIALES)
+        onSubmit?.({ ...producto, codigo: producto.codigo.trim().toUpperCase() })
+        setProducto({ ...VALORES_INICIALES })
         setErrores({})
-        setMensaje('Producto guardado en esta sesión.')
+        setMensaje(initialValue ? 'Producto actualizado en esta sesión.' : 'Producto guardado en esta sesión.')
     }
 
     return (
@@ -55,7 +63,10 @@ function FormularioProducto({ onSubmit }) {
                 <CampoFormulario id="categoria" label="Categoría" value={producto.categoria} onChange={handleChange} error={errores.categoria} options={categorias} required />
                 <CampoFormulario id="imagen" label="Imagen" type="url" value={producto.imagen} onChange={handleChange} error={errores.imagen} placeholder="https://..." />
             </div>
-            <button className="admin-submit" type="submit">Guardar producto</button>
+            <div className="admin-form-actions">
+                <button className="admin-submit" type="submit">{initialValue ? 'Actualizar producto' : 'Guardar producto'}</button>
+                {initialValue && <button className="admin-secondary" type="button" onClick={onCancel}>Cancelar</button>}
+            </div>
             {mensaje && <p className="admin-status" role="status">{mensaje}</p>}
         </form>
     )

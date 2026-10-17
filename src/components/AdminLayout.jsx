@@ -1,7 +1,14 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './AdminLayout.css'
 
-function AdminLayout({ children }) {
+function AdminLayout({ children, onCerrarSesion }) {
+    const navigate = useNavigate()
+
+    function cerrarSesion() {
+        onCerrarSesion?.()
+        navigate('/login')
+    }
+
     return (
         <div className="admin-layout">
             <header className="admin-header">
@@ -9,7 +16,10 @@ function AdminLayout({ children }) {
                     <p className="admin-header__eyebrow">Panel administrativo</p>
                     <h1>Administración</h1>
                 </div>
-                <Link className="admin-header__link" to="/">Volver a la tienda</Link>
+                <div className="admin-header__actions">
+                    <Link className="admin-header__link" to="/">Volver a la tienda</Link>
+                    <button className="admin-header__link admin-header__button" type="button" onClick={cerrarSesion}>Cerrar sesión</button>
+                </div>
             </header>
 
             <div className="admin-layout__body">
