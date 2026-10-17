@@ -4,4 +4,18 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/setupTests.js',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      include: ['src/**/*.{js,jsx}'],
+      exclude: ['src/main.jsx', 'src/**/*.test.{js,jsx}'],
+      reportsDirectory: './coverage',
+    },
+    maxWorkers: 2,
+    maxConcurrency: 1,
+  },
 })
