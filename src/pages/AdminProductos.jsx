@@ -42,6 +42,7 @@ function AdminProductos({ productos, onGuardarProducto, onEliminarProducto, onCe
                                         <th>Nombre</th>
                                         <th>Categoría</th>
                                         <th>Precio</th>
+                                        <th>Oferta</th>
                                         <th>Stock</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
@@ -54,6 +55,7 @@ function AdminProductos({ productos, onGuardarProducto, onEliminarProducto, onCe
                                             <td>{item.nombre}</td>
                                             <td>{item.categoria}</td>
                                             <td>${item.precio}</td>
+                                            <td>{item.oferta ? 'Sí' : 'No'}</td>
                                             <td>{item.stock}</td>
                                             <td>{item.stock > 0 ? 'Disponible' : 'Sin stock'}</td>
                                             <td>
@@ -64,7 +66,7 @@ function AdminProductos({ productos, onGuardarProducto, onEliminarProducto, onCe
                                             </td>
                                         </tr>
                                     ))}
-                                    {productos.length === 0 && <tr><td colSpan="7">No hay productos registrados.</td></tr>}
+                                    {productos.length === 0 && <tr><td colSpan="8">No hay productos registrados.</td></tr>}
                                 </tbody>
                             </Table>
                         </div>

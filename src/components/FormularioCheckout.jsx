@@ -19,11 +19,15 @@ const COMUNAS = ['La Serena', 'Coquimbo', 'Ovalle', 'Valparaíso', 'Viña del Ma
 const TIPOS_ENTREGA = ['Despacho a domicilio', 'Retiro en tienda']
 const RESULTADOS_PAGO = ['aprobado', 'rechazado']
 
-function FormularioCheckout({ producto }) {
+function FormularioCheckout({ productosCompra, onConfirmarCompra }) {
     const navigate = useNavigate()
     const [datos, setDatos] = useState(VALORES_INICIALES)
     const [errores, setErrores] = useState({})
     const [mensaje, setMensaje] = useState('')
+    const total = productosCompra.reduce(
+        (suma, item) => suma + item.producto.precio * item.cantidad,
+        0,
+    )
 
     function handleChange(event) {
         const { name, value } = event.target
@@ -41,7 +45,8 @@ function FormularioCheckout({ producto }) {
             return
         }
 
-        navigate(`/compra/${datos.resultadoPago}`)
+        onConfirmarCompra(datos, productosCompra)
+        navigate('/compra/' + datos.resultadoPago)
     }
 
     return (
@@ -69,10 +74,24 @@ function FormularioCheckout({ producto }) {
                     <CampoFormulario id="resultadoPago" label="Resultado de pago simulado" value={datos.resultadoPago} onChange={handleChange} error={errores.resultadoPago} options={RESULTADOS_PAGO} required />
                 </Col>
             </Row>
+            <section className="checkout-product-summary mt-4" aria-labelledby="resumen-productos">
+                <h3 id="resumen-productos" className="h5">Resumen del pedido</h3>
+                <ul className="list-unstyled mb-2">
+                    {productosCompra.map(({ producto, cantidad }) => (
+                        <li key={producto.codigo} className="d-flex justify-content-between gap-3">
+                            <span>{producto.nombre} × {cantidad}</span>
+                            <strong>{'$' + Number(producto.precio * cantidad).toLocaleString('es-CL')}</strong>
+                        </li>
+                    ))}
+                </ul>
+                <p className="d-flex justify-content-between mb-0">
+                    <span>Total</span>
+                    <strong>{'$' + Number(total).toLocaleString('es-CL')}</strong>
+                </p>
+            </section>
             <p className="checkout-simulation-note mt-3 mb-2">El resultado de pago es una simulación local; no se realiza ningún cobro.</p>
             <Button type="submit" className="btn-azul">Confirmar compra</Button>
             {mensaje && <Alert variant="danger" role="status" className="mt-3 mb-0">{mensaje}</Alert>}
-            <p className="checkout-product-summary mt-3 mb-0">Producto: <strong>{producto.nombre}</strong> · Total: <strong>${producto.precio}</strong></p>
         </Form>
     )
 }

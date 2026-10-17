@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import ProductoDestacado from './ProductoDestacado.jsx'
 import './ProductosDestacados.css'
 
-function ProductosDestacados({ productos }) {
+function ProductosDestacados({ productos, onAgregarAlCarrito }) {
   return (
     <section className="productos" aria-labelledby="destacados-titulo">
       <Container>
@@ -11,7 +11,7 @@ function ProductosDestacados({ productos }) {
         <Row className="g-3">
           {productos.map((producto) => (
             <Col xs={12} lg={6} key={producto.codigo}>
-              <ProductoDestacado producto={producto} />
+              <ProductoDestacado producto={producto} onAgregarAlCarrito={onAgregarAlCarrito} />
             </Col>
           ))}
         </Row>

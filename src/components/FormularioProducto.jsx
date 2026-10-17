@@ -13,11 +13,14 @@ const VALORES_INICIALES = {
     stockCritico: '',
     categoria: '',
     imagen: '',
+    oferta: false,
+    precioAnterior: '',
 }
 
 function crearValoresIniciales(initialValue) {
     const valores = { ...VALORES_INICIALES, ...initialValue }
-    for (const campo of ['precio', 'stock', 'stockCritico']) {
+    if (valores.precioAnterior == null) valores.precioAnterior = ''
+    for (const campo of ['precio', 'stock', 'stockCritico', 'precioAnterior']) {
         if (valores[campo] !== '' && valores[campo] != null) valores[campo] = String(valores[campo])
     }
     return valores
@@ -29,8 +32,11 @@ function FormularioProducto({ onSubmit, initialValue, onCancel, codigosExistente
     const [mensaje, setMensaje] = useState('')
 
     function handleChange(event) {
-        const { name, value } = event.target
-        setProducto((actual) => ({ ...actual, [name]: value }))
+        const { name, value, type, checked } = event.target
+        setProducto((actual) => ({
+            ...actual,
+            [name]: type === 'checkbox' ? checked : value,
+        }))
         setMensaje('')
     }
 
@@ -79,6 +85,31 @@ function FormularioProducto({ onSubmit, initialValue, onCancel, codigosExistente
                 <Col md={6}>
                     <CampoFormulario id="imagen" label="Imagen" type="url" value={producto.imagen} onChange={handleChange} error={errores.imagen} placeholder="https://..." />
                 </Col>
+                <Col xs={12}>
+                    <Form.Check
+                        id="oferta"
+                        name="oferta"
+                        type="checkbox"
+                        label="Mostrar en ofertas"
+                        checked={Boolean(producto.oferta)}
+                        onChange={handleChange}
+                    />
+                </Col>
+                {producto.oferta && (
+                    <Col md={6}>
+                        <CampoFormulario
+                            id="precioAnterior"
+                            label="Precio anterior"
+                            type="number"
+                            value={producto.precioAnterior}
+                            onChange={handleChange}
+                            error={errores.precioAnterior}
+                            min={0}
+                            step="0.01"
+                            required
+                        />
+                    </Col>
+                )}
             </Row>
             <div className="d-flex gap-2 mt-3">
                 <Button type="submit" className="btn-azul">{initialValue ? 'Actualizar producto' : 'Guardar producto'}</Button>

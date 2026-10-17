@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { Navbar as BsNavbar, Nav, Container } from 'react-bootstrap'
 import './Navbar.css'
 
-function Navbar() {
+function Navbar({ cantidadCarrito = 0 }) {
   return (
     <BsNavbar expand="lg" className="site-navbar" variant="dark" collapseOnSelect>
       <Container>
@@ -26,12 +26,14 @@ function Navbar() {
           <Nav className="navbar-links ms-auto">
             <Nav.Link as={NavLink} to="/" end>Inicio</Nav.Link>
             <Nav.Link as={NavLink} to="/productos">Productos</Nav.Link>
+            <Nav.Link as={NavLink} to="/categorias">Categorías</Nav.Link>
+            <Nav.Link as={NavLink} to="/ofertas">Ofertas</Nav.Link>
             <Nav.Link as={NavLink} to="/nosotros">Quiénes somos</Nav.Link>
             <Nav.Link as={NavLink} to="/blogs">Blogs</Nav.Link>
             <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
             <Nav.Link as={NavLink} to="/registro">Registrarse</Nav.Link>
             <Nav.Link as={NavLink} to="/login">Ingresar</Nav.Link>
-            <Nav.Link as={NavLink} to="/checkout">Carrito</Nav.Link>
+            <Nav.Link as={NavLink} to="/carrito">Carrito ({cantidadCarrito})</Nav.Link>
           </Nav>
         </BsNavbar.Collapse>
       </Container>

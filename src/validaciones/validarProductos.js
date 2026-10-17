@@ -6,6 +6,7 @@ function validarProducto(producto, codigosExistentes = [], codigoOriginal = '') 
     const nombre = producto.nombre?.trim() ?? ''
     const descripcion = producto.descripcion?.trim() ?? ''
     const precio = producto.precio?.trim() ?? ''
+    const precioAnterior = producto.precioAnterior?.toString().trim() ?? ''
     const stock = producto.stock?.trim() ?? ''
     const stockCritico = producto.stockCritico?.trim() ?? ''
     const imagen = producto.imagen?.trim() ?? ''
@@ -32,6 +33,14 @@ function validarProducto(producto, codigosExistentes = [], codigoOriginal = '') 
         errores.precio = 'Este campo es obligatorio.'
     } else if (!Number.isFinite(Number(precio)) || Number(precio) < 0) {
         errores.precio = 'Ingresa un precio igual o mayor que 0.'
+    }
+
+    if (producto.oferta) {
+        if (!precioAnterior) {
+            errores.precioAnterior = 'Ingresa el precio anterior de la oferta.'
+        } else if (!Number.isFinite(Number(precioAnterior)) || Number(precioAnterior) <= Number(precio)) {
+            errores.precioAnterior = 'El precio anterior debe ser mayor que el precio actual.'
+        }
     }
 
     if (!stock) {
